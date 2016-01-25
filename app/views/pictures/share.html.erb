@@ -1,0 +1,42 @@
+<p id="notice"><%= notice%></p>
+<div class="row">
+	<div class="col-lg-6" align="left">
+		<%= image_tag @picture.image.url, :style => 'width:100%;'%>
+	</div>
+	<div class="col-lg-6">
+		<div class="panel panel-default">
+			<div class="panel-heading c-list">
+				<span class="title">Users</span>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="input-group c-search">
+						<input type="text" class="form-control" id="contact-list-search">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">
+								<span class="glyphicon glyphicon-search text-muted"></span>
+							</button> </span>
+					</div>
+				</div>
+			</div>
+			
+			<ul class="list-group" id="contact-list">
+				<%for user in @users%>
+				<li class="list-group-item">
+					<div class="col-xs-12 col-sm-3">
+						
+						<span class="name"><%= user.email%></span>
+					
+						<%= link_to 'Share',shareImage_picture_path(:picture_id => @picture.id,:user_id=>user.id),:class=>'btn btn-primary'%>
+					
+					</div>
+					<div class="clearfix"></div>
+				</li>
+				<%end%>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+<%= link_to 'back', pictures_path %>

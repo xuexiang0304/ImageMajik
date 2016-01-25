@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="list-group gallery">
+		<% @pictures.each do |picture| %>
+		<div  class="col-md-3 col-sm-4 col-xs-6" align="center">
+			  <a class="thumbnail fancybox" rel="ligthbox" href="<%= picture.image.url%>">
+			<div class="img-responsive" >
+				<%= image_tag picture.image_url(:thumb) %>
+			</div>
+			<p style="font-size: 16px;font-weight: bold" align="center">
+				<%= picture.name %>
+			</p>
+				<%= link_to 'Download', download_picture_path(picture) %>
+				<%= link_to 'Edit', edit_picture_path(picture) %>
+				<%= link_to 'Filter', app_filter_picture_path(picture) %>
+				<%= link_to 'Share', share_picture_path(picture)%>
+				<%= link_to 'Remove', remove_picture_path(picture), data: { confirm: 'Are you sure?' } %>
+			</a>
+		</div>
+		<%end%>
+	</div>
+</div>
+<%= link_to 'Back', pictures_path %>

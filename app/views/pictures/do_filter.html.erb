@@ -1,0 +1,22 @@
+<h1>Modify the Image</h1>
+<div class="row">
+	<div align="center"class="col-md-6" style="margin-top: 30px">
+		<%= image_tag @ModifiedImages , :style=>"width:350px"%>
+	</div>
+	<div align="left" class="col-md-2" style="margin-top: 30px">
+		<ul>
+			<% @filters.each do |filter|%>
+			<li class="form-group">
+				<%= button_to filter.name, picture_do_filter_path(:picture_id=>@picture.id,:filter_id=>filter.id), :method=>"get",:class=>"btn btn-primary" %>
+			</li>
+			<%end%>
+		</ul>
+
+	</div>
+</div>
+<div align="center">
+	<%= link_to 'save',saveFilteredImage_picture_path(:id=>@picture.id,:url=>@ModifiedImages),:method=>"get",:class=>"btn btn-warning"%>
+</div>
+<div>
+	<%= link_to 'Back', app_filter_picture_path(@picture.id) %>
+</div>

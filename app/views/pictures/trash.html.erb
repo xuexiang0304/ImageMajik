@@ -1,0 +1,21 @@
+<h1>Pictures in Trash</h1>
+<div align="right"><%= button_to 'Clear Trash',clear_trash_picture_path, :method => "get", :class=>"btn btn-warning"%></div>
+<div class="row">
+	<div class="list-group gallery">
+		<% @trash_pictures.each do |picture| %>
+		<div  class="col-md-3 col-sm-4 col-xs-6" align="center">
+			<a class="thumbnail fancybox" rel="ligthbox" href="<%= picture.image.url%>">
+			<div class="img-responsive" >
+				<%= image_tag picture.image_url(:thumb) %>
+			</div>
+			<p style="font-size: 16px;font-weight: bold" align="center">
+				<%= picture.name %>
+			</p> 
+			<%= link_to 'UnRemove', undo_remove_picture_path(picture) %>
+			<%= link_to 'Destroy',picture,method: :delete, data: { confirm: 'Are you sure?' } %> </a>
+		</div>
+		<%end%>
+	</div>
+</div>
+
+<%= link_to 'back', pictures_path %>

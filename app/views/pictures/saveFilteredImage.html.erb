@@ -1,0 +1,32 @@
+<h1>Save Image</h1>
+
+<%= form_tag({:action=>'save_image'}, :method => :get) do %>
+<div align="left">
+
+	<%= image_tag ("#{@url}"), :style=>"width:300px"%>
+	</div>
+	<div class="row" >
+		<div class="col-md-4" >
+	<div class="form-group"> 
+    <p>
+   Name:<br />
+   <%= text_field_tag "name", nil, :class => "form-control ", :placeholder => "Please input image name"%>
+ </p>
+ </div>
+ <div class="form-group">
+    <p>
+   Tag:<br />
+   <%= text_field_tag"tag", nil, :class => "form-control ", :placeholder => "Please input image tag" %>
+ </p>
+ </div>
+    <%= text_field_tag("picture_url" , @url , :style => "display:none")%>
+   
+    <%= hidden_field_tag("picture_id" , @picture.id , :style => "display:none")%>
+<div class="form-group">
+    <p style= "text-align:center">
+    <%= submit_tag 'Submit', class: "btn btn-primary"%>
+    </p>
+    </div>
+   </div>
+  </div>
+  <% end %>

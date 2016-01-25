@@ -1,0 +1,19 @@
+<h1>Shared Images</h1>
+<div class="row">
+	<div class="list-group gallery">
+		<%@shared_images.each do |shared_image|%>
+		<div  class="col-md-3 col-sm-4 col-xs-6" align="center">
+			  <a class="thumbnail fancybox" rel="ligthbox" href="<%= shared_image.image.url%>">
+			<div class="img-responsive" >
+		<%= image_tag shared_image.image_url(:thumb) %>
+		<p style="font-size: 16px;font-weight: bold" align="center">
+				<%= shared_image.name %>
+			</p>
+			</div>
+				<%= link_to 'Download', download_picture_path(shared_image) %>
+			</a>
+		</div>
+		<%end%>
+	</div>
+</div>
+<%= link_to 'Back', pictures_path %>
