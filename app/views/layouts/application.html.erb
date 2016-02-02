@@ -30,7 +30,7 @@
 							<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 						</li>
 						<% else %>
-						<li class="navbar-right"">
+						<li class="navbar-right">
 							<%= link_to " Sign Up", new_user_registration_path%>
 						</li>
 
@@ -42,7 +42,20 @@
 				</div>
 			</div>
 		</nav>
-
+	  <% if user_signed_in? %>
+		<!-- <aside class="main-sidebar">
+			<section class="sidebar">
+				<div class="user-panel clearfix">
+					<div class="pull-left image">
+		              <img src="assets/user.png" class="img-circle" alt="User Image" />
+		            </div>
+		            <div class="pull-left info">
+		              <p>Alexander Pierce</p>
+		            </div>
+				</div>
+			</section>
+		</aside> -->
+		<%end%>
 		<div class="container">
 			<%= yield %>
 			<p class="notice">

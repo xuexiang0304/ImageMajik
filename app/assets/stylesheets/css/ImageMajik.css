@@ -133,6 +133,35 @@ img:hover {
     margin-top: 20px;
 }
 
+.gallery .fancybox p{
+  color: grey;
+  font-size: 15px;
+}
+
+.icon-list ul{
+  list-style: none;
+  padding-left: 0px;
+  width: 100%;
+}
+.icon-list li{
+  display:inline;
+  font-size: 18px;
+  padding-right: 5px;  
+}
+
+.icon-list li span{
+  color: #2bb8aa;
+}
+
+.thumbnail{
+  min-height: 292px;
+  border-radius: 0px !important;
+}
+
+/*.icon-list{
+  bottom: 27px;
+  position: absolute;
+}*/
 /*share page*/
 .c-search > .form-control {
    border-radius: 0px;
@@ -175,3 +204,47 @@ img:hover {
     padding: 5px 10px;
     font-size: 1.25em;
 }
+
+.main-sidebar,
+.left-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
+  min-height: 100%;
+  width: 230px;
+  z-index: 810;
+}
+
+.img-circle{
+	width: 45px;
+}
+
+.sidebar {
+  padding-bottom: 10px;
+}
+
+.user-panel {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+}
+  .clearfix();
+  > .image > img {
+    width: 100%;
+    max-width: 45px;
+    height: auto;
+  }
+  > .info {    
+    padding: 5px 5px 5px 15px;
+    line-height: 1;
+    position: absolute;
+    left: 55px;    
+    > p {
+      font-weight: 600;
+      margin-bottom: 9px;
+    }
+  }
+
+
