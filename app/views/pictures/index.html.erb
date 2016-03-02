@@ -1,37 +1,20 @@
-<div class="row">
-<div class="col-md-6" align="left" style="font-size: 18px">
-	<%= link_to 'Trash', trash_picture_path %>
-	<%= link_to 'Upload Image', new_picture_path %>
-    <%= link_to'Shared Image', showSharedImage_picture_path %>
-</div>
- <div class="col-md-4" align="right">
-		    <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button> -->
-                    <!-- <ul class="dropdown-menu" role="menu">
-                      <li><a href="#Image_name">Image name</a></li>
-                      <li><a href="#tag">Tag</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#all">Anything</a></li>
-                    </ul> -->
-                </div>
-                <!-- <input type="hidden" name="search_param" value="all" id="search_param"> -->  
-                <%= form_tag({:action=>'search'}, :method => :get) do %>                    
-                <span class="input-group-btn">
-                	<%= text_field_tag "input", nil, :class => "form-control ", :placeholder => "Please input image tag"%> 
-                    <%=submit_tag 'search',:class=>"btn btn-primary "%>
-                </span>
-                
-                <%end%>
-            </div>
+<div class="search row">
+ <div class="col-md-offset-7 col-md-4 col-sm-8 col-xs-12">
+	    <div class="input-group">
+            <!-- <input type="hidden" name="search_param" value="all" id="search_param"> -->  
+            <%= form_tag({:action=>'search'}, :method => :get) do %>                    
+	            <div class="input-group-btn">
+	            	<%= text_field_tag "input", nil, :class => "form-control ", :placeholder => "Please input tag"%> 
+	                <%=submit_tag 'search', :class=>"btn" %>
+	            </div>
+            <%end%>
         </div>
+    </div>
 </div>
-<div class="row">
+<div class="row" id="picture_gallery">
 	<div class="list-group gallery">
 		<% @pictures.each do |picture| %>
-		<div  class="col-md-3 col-sm-4 col-xs-6" align="center">
+		<div  class="col-xs-12 col-sm-6 col-md-4 col-lg-3" align="center">
 			<div class="thumbnail">
 				<a class="fancybox" rel="ligthbox" href="<%= picture.image.url%>">
 					<div class="img-responsive" >
@@ -75,3 +58,4 @@
 		<%end%>
 	</div>
 </div>
+<%= will_paginate @pics %>

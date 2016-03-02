@@ -15,6 +15,8 @@ class PicturesController < ApplicationController
   def index
     @pictures = current_user.pictures.where(mark:0)
     @trash_pictures=current_user.pictures.where(mark:1)
+    #perform a paginated query:
+    @pics = Picture.paginate(:page => params[:page])
   # @pictures = Picture.all
   end
 
@@ -159,10 +161,10 @@ class PicturesController < ApplicationController
     redirect_to :back                                                                                                          
   end
   
-def search
-  @pictures=Picture.where(:tag=>params[:input])
-  
-end
+  def search
+    @pictures=Picture.where(:tag=>params[:input])
+    
+  end
   def showSharedImage
     @shared_images=[]
     PicturesUsers.where(:user_id => current_user.id).each do |p|
@@ -191,6 +193,6 @@ end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def picture_params
-    params.require(:picture).permit(:picture_path, :name, :user_id, :image,:mark,:tag,:filter_id)
-  end
+    params.require(:picture).permit(:picture_path, :name, :user_id, :image, :mark, :tag, :filter_id, :page)
+  end 
 end

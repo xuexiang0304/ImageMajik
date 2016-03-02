@@ -1,10 +1,14 @@
-<h1>Modify the Image</h1>
+<div class="row">
+	<%= link_to pictures_path, :title=>"back", :class=>"btn btn-custom back" do%>
+		<span class="glyphicon glyphicon-chevron-left">back</span>
+	<%end%>
+</div>
 <div class="row">
 	<div align="center" class="col-md-6" style="margin-top: 30px">
 		<%= image_tag @picture.image.url, :style=>"width:350px"%>
 	</div>
-	<div align="left" class="col-md-2" style="margin-top: 30px">
-		<ul>
+	<div class="col-md-2" style="margin-top: 30px">
+		<ul class="filter_list">
 			<% @filters.each do |filter|%>
 			<li class="form-group">
 				<%= button_to filter.name, picture_do_filter_path(:picture_id=>@picture.id,:filter_id=>filter.id), :method=>"get",:class=>"btn btn-primary" %>
@@ -13,7 +17,4 @@
 		</ul>
 
 	</div>
-</div>
-<div>
-	<%= link_to 'Back', pictures_path %>
 </div>
